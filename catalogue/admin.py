@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Register your models here.
 
-from models import CatalogueItem, TopicArea, Profile
+from models import CatalogueItem, TopicArea, Profile, JobType
 
 
 class CatalogueItemAdmin(admin.ModelAdmin):
@@ -23,6 +23,15 @@ class TopicAreaAdmin(admin.ModelAdmin):
         model = TopicArea
 
 admin.site.register(TopicArea, TopicAreaAdmin)
+
+
+class JobTypeAdmin(admin.ModelAdmin):
+    list_display = ["__unicode__", "active"]
+
+    class Meta:
+        model = JobType
+
+admin.site.register(JobType, JobTypeAdmin)
 
 
 # Define an inline admin descriptor for Profile model
