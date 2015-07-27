@@ -25,6 +25,16 @@ class Profile(models.Model):
     is_curator = models.BooleanField(default=False)
 
 
+class Level(models.Model):
+    level_desc = models.CharField(max_length=10)
+    active = models.BooleanField(default=True)
+    date_created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    date_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):  # Python 2
+        return self.level_desc
+
+
 class JobType(models.Model):
     job = models.CharField(max_length=40)
     active = models.BooleanField(default=True)
@@ -39,8 +49,8 @@ class CatalogueItem(models.Model):
     title = models.CharField(max_length=80)
     # TODO check database max lengths for text fields
     description = models.CharField(max_length=2000, blank=True)
-    topic_area = models.CharField(max_length=50)
-    level = models.CharField(max_length=10)
+    topic_area = models.ForeignKey(TopicArea)
+    level = models.ForeignKey(Level)
     link = models.CharField(max_length=255)
     discovered_by = models.CharField(max_length=50)
     what_learn = models.CharField(max_length=2000, blank=True)

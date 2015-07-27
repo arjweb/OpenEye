@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Register your models here.
 
-from models import CatalogueItem, TopicArea, Profile, JobType
+from models import CatalogueItem, TopicArea, Profile, JobType, Level
 
 
 class CatalogueItemAdmin(admin.ModelAdmin):
@@ -14,6 +14,15 @@ class CatalogueItemAdmin(admin.ModelAdmin):
         model = CatalogueItem
 
 admin.site.register(CatalogueItem, CatalogueItemAdmin)
+
+
+class LevelAdmin(admin.ModelAdmin):
+    list_display = ["__unicode__", "active"]
+
+    class Meta:
+        model = Level
+
+admin.site.register(Level, LevelAdmin)
 
 
 class TopicAreaAdmin(admin.ModelAdmin):
