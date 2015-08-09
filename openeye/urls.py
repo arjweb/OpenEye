@@ -18,7 +18,8 @@ from django.contrib import admin
 
 urlpatterns = [
     # Pattern means ^ start $ end with nothing in between
-    url(r'^$', 'catalogue.views.home', name='home'),
+    #url(r'^$', 'catalogue.views.home', name='home'),
     # Pattern means starts admin/
+    url(r'', include('catalogue.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
