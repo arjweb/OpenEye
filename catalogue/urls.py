@@ -6,5 +6,6 @@ from . import views
 
 urlpatterns = [
     # Pattern means ^ start $ end with nothing in between
+    url(r'^topic/(?P<pk>[0-9]+)/$', views.topic_content, name='topic_content'),
     url(r'^$', 'catalogue.views.home', name='home'),
 ]

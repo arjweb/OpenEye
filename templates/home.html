@@ -49,8 +49,8 @@
  {% block content %}
 
  	{% for topic in topics %}
- 		<div>
- 			<h4><a href=""> {{ topic.name }}</a></h4>
+ 		<div class="skill_topics">
+ 			<h4><a href="{% url 'topic_content' pk=topic.id %}">{{ topic.name }}</a></h4>
 
   		</div>
  	{% endfor %}
